@@ -1,9 +1,9 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import PumpingLemma from './components/PumpingLemma.vue'
 </script>
 
 <template>
-  <HelloWorld msg="Vite + Vue" />
+  <PumpingLemma/>
 </template>
 
 <style scoped>
