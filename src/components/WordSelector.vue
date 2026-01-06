@@ -31,7 +31,7 @@ const isValid = computed(() => errors.value.length === 0)
 
 <template>
   <div class="space-y-4">
-    <code class="text-lg ">Spieler wählt ein Wort w ∈ L | |w| ≥ p</code>
+    <code class="text-lg ">Spieler wählt ein Wort w ∈ L | |w| ≥ {{p}}</code>
 
     <!-- Eingabefeld für Wort -->
     <input class="w-full border rounded px-3 py-2 mt-2" :value="word" @input="emit('update:word', $event.target.value)"
@@ -46,7 +46,7 @@ const isValid = computed(() => errors.value.length === 0)
     </div>
 
     <!-- Weiter Button -->
-    <button class="px-4 py-2 rounded bg-blue-600 text-white disabled:opacity-50" :disabled="!isValid"
+    <button class="px-4 py-2 rounded bg-red-700 w-full text-white disabled:opacity-50" :disabled="!isValid"
       @click="emit('next')">
       Weiter
     </button>

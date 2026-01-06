@@ -22,8 +22,12 @@ function update(value) {
       Wähle den Pumping-Faktor
     </p>
     <!-- entweder slider oder num feld oder beides -->
-    <input type="range" min="0" max="20" :value="i" @input="update($event.target.value)" class="w-full" />
+    <input type="range" min="0" max="20" :value="i" @input="update($event.target.value)"
+      class="block w-full mt-0 mb-1 accent-red-600" />
 
+    <div class="flex justify-between text-sm px-1 leading-none">
+      <span v-for="n in [0, 5, 10, 15, 20]" :key="n">{{ n }}</span>
+    </div>
     <input type="number" min="0" max="20" :value="i" @input="update($event.target.value)"
       class="w-full border rounded px-3 py-2" />
     <!-- Anzeige des gewählten Werts i -->

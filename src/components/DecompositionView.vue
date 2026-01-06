@@ -25,7 +25,8 @@ defineProps({
         </p>
         <!-- - Zerlegungshinweis -- -->
         <p class="text-lg font-medium">
-            Dämon zerlegt das Wort in w = uvw
+            <img src="@/assets/1F608_color.png" alt="Dämon" class="w-6 h-6 inline mr-2">
+            Dämon zerlegt das Wort in z = uvw
         </p>
 
         <!-- Zerlegung -->
@@ -42,9 +43,9 @@ defineProps({
         </div>
 
         <!-- Bedingungen -->
-        <div v-if="showConditions" class="text-m font-bold font-mono bg-gray-50 p-3 rounded space-y-1">
+        <!-- <div v-if="showConditions" class="text-m font-bold font-mono bg-gray-50 p-3 rounded space-y-1">
             <p>|v| = {{ v.length }} ≥ 1</p>
             <p>|uv| = {{ (u + v).length }} ≤ p</p>
-        </div>
+        </div> -->
     </div>
 </template>

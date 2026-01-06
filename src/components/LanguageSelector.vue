@@ -17,8 +17,6 @@ const languages = computed(() =>
 
 <template>
   <div class="space-y-4">
-    <h2 class="text-xl font-semibold">Sprache auswählen</h2>
-
     <!-- Dropdown zur Sprachauswahl -->
     <select v-model="selectedLanguage" class="w-full text-xl border rounded px-3 py-2">
       <option disabled value="">Bitte Sprache wählen</option>
@@ -36,9 +34,9 @@ const languages = computed(() =>
     </div>
 
     <!-- Start Button -->
-    <button v-if="selectedLanguage" class="px-4 py-2 rounded bg-blue-600 text-white"
+    <button v-if="selectedLanguage" class="w-full px-4 py-2 rounded bg-red-700 text-white"
       @click="emit('start', selectedLanguage)">
-      Spiel starten
+      <p class="font-bold">Spiel starten</p>
     </button>
   </div>
 </template>

@@ -111,20 +111,39 @@ watch(i, () => {
 
 <template>
   <div class="max-w-xl mx-auto space-y-8">
+    <h2 class="text-2xl mt-16 font-bold text-center">Pumping Lemma Spiel </h2>
+
+
+
+
     <!-- Sprachauswahl -->
     <LanguageSelector v-if="currentStep === Step.LANGUAGE" @start="startGame" />
 
     <!-- Sprachdefinition -->
-    <div v-if="currentStep !== Step.LANGUAGE" class="border rounded p-4 mt-1 bg-gray-50">
-      <p class="font-mono text-m font-bold">
+    <div v-if="currentStep !== Step.LANGUAGE" class="border rounded p-4 mt-1 bg-gray-50 font-mono text-m font-bold">
+      <p>
         {{ languageDefinitions[selectedLanguage].description }}
+      </p>
+      <p v-if="currentStep === Step.PUMP">
+        Wort : {{ word }}
+        <br />
+        Pumping-Länge: p = {{ p }}
+        <br />
+        Zerlegung: z = <span class="text-blue-600 font-bold">u</span>
+        <span class="text-red-600 font-bold">v</span>
+        <span class="text-green-600 font-bold">w</span> mit
+
+        <span class="text-blue-600 font-bold">{{ u }}</span>
+        <span class="text-red-600 font-bold">{{ v }}</span>
+        <span class="text-green-600 font-bold">{{ w }}</span>
+
       </p>
     </div>
 
     <!-- Wortwahl -->
     <div v-if="currentStep === Step.WORD_SELECT">
       <p class="text-lg">
-        Dämon wählt
+        <img src="@/assets/1F608_color.png" alt="Dämon" class="w-8 h-8 inline"> Dämon wählt
         <span class="font-mono font-bold">p = {{ p }}</span>
       </p>
       <WordSelector :language="languageDefinitions[selectedLanguage]" :p="p" v-model:word="word"
@@ -134,7 +153,7 @@ watch(i, () => {
     <!-- Zerlegung -->
     <div v-if="currentStep === Step.DECOMPOSE" class="space-y-6">
       <DecompositionView :u="u" :v="v" :w="w" :p="p" :showConditions="true" />
-      <button class="px-4 py-2 bg-blue-600 text-white rounded" @click="startPumping">
+      <button class="px-4 py-2 bg-red-700 w-full text-white rounded" @click="startPumping">
         Weiter zum Pumpen
       </button>
     </div>
@@ -142,7 +161,7 @@ watch(i, () => {
     <!-- Pumpen -->
     <div v-if="currentStep === Step.PUMP" class="space-y-6">
       <!-- Zerlegung ohne Bedingungen -->
-      <DecompositionView :u="u" :v="v" :w="w" :p="p" :showConditions="false" />
+      <!-- <DecompositionView :u="u" :v="v" :w="w" :p="p" :showConditions="false" /> -->
 
       <PumpFactorSelector v-model:i="i" />
       <div class="border rounded p-4 bg-gray-50 space-y-2">
@@ -163,7 +182,7 @@ watch(i, () => {
       </div>
 
       <!-- Validierung -->
-      <button class="px-4 py-2 bg-green-600 text-white rounded" @click="validateWord">
+      <button class="px-4 py-2 bg-red-700 w-full text-white rounded" @click="validateWord">
         Wort überprüfen
       </button>
 
@@ -184,11 +203,13 @@ watch(i, () => {
     </div>
 
     <!-- Navigation -->
-    <div v-if="currentStep !== Step.LANGUAGE" class="flex justify-between pt-8">
-      <button class="text-sm hover:underline px-4 py-2 bg-blue-600 text-white rounded" @click="goBack">
+    <div v-if="currentStep !== Step.LANGUAGE" class="flex justify-between pt-2">
+      <button class="text-sm hover:underline px-4 py-2 border-2 border-red-700 w-1/4 text-red-700 font-bold rounded"
+        @click="goBack">
         Zurück
       </button>
-      <button class="text-sm hover:underline px-4 py-2 bg-blue-600 text-white rounded" @click="restartSameLanguage">
+      <button class="text-sm hover:underline px-4 py-2 border-2 border-red-700 w-1/4 text-red-700 font-bold rounded"
+        @click="restartSameLanguage">
         Neustart
       </button>
     </div>
