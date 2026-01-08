@@ -1,6 +1,8 @@
 <script setup>
 import { ref, computed, watch } from "vue"
 import { languageDefinitions } from "@/logic/languageDefinitions"
+import { computeP } from "@/logic/pumpingUtils"
+import { useRouter } from "vue-router"
 
 
 //---------- Komponenten ---------- //
@@ -8,6 +10,7 @@ import LanguageSelector from "@/components/LanguageSelector.vue"
 import WordSelector from "@/components/WordSelector.vue"
 import DecompositionView from "@/components/DecompositionView.vue"
 import PumpFactorSelector from "@/components/PumpFactorSelector.vue"
+
 
 //---------- Spielzustände ---------- //
 const Step = {
@@ -24,10 +27,12 @@ const selectedLanguage = ref(null) // Ausgewählte Sprache
 const p = ref(null) // Pumping-Länge   
 const word = ref("") // Gewähltes Wort
 const i = ref(1) // Pumpfaktor
+const router = useRouter()
 
 //---------- Dämon P Wert ---------- //
 function demonChoosesP() {
-  p.value = Math.floor(Math.random() * 20) + 1
+  const language = languageDefinitions[selectedLanguage.value]
+  p.value = computeP(language)
 }
 
 //---------- Zerlegung uvw ---------- //
@@ -36,6 +41,26 @@ const v = computed(() => word.value.slice(p.value - 1, p.value))
 const w = computed(() => word.value.slice(p.value))
 
 //---------- Navigation ---------- //
+function goToHome() {
+   if (currentStep.value !== Step.LANGUAGE) {
+    const confirmLeave = confirm(
+      "Möchtest du das aktuelle Spiel wirklich verlassen?"
+    )
+    if (!confirmLeave) return
+  }
+  // kompletter Spiel-Reset
+  selectedLanguage.value = null
+  p.value = null
+  word.value = ""
+  i.value = 1
+  history.value = []
+  currentStep.value = Step.LANGUAGE
+  validationResult.value = null
+
+  // Navigation zur Startseite
+  router.push("/")
+}
+
 function startGame(langId) {
   history.value = []
   selectedLanguage.value = langId
@@ -111,10 +136,15 @@ watch(i, () => {
 
 <template>
   <div class="max-w-xl mx-auto space-y-8">
+    <div class="flex justify-end bg-gray-50">
+      <button
+        class="px-4 py-2 border-2 border-red-700 text-red-700 font-bold rounded"
+        @click="goToHome"
+      >
+        Zur Startseite
+      </button>
+    </div>
     <h2 class="text-2xl mt-16 font-bold text-center">Pumping Lemma Spiel </h2>
-
-
-
 
     <!-- Sprachauswahl -->
     <LanguageSelector v-if="currentStep === Step.LANGUAGE" @start="startGame" />

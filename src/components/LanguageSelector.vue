@@ -21,7 +21,7 @@ const languages = computed(() =>
     <select v-model="selectedLanguage" class="w-full text-xl border rounded px-3 py-2">
       <option disabled value="">Bitte Sprache wählen</option>
       <option v-for="lang in languages" :key="lang.id" :value="lang.id">
-        {{ lang.label }} = {{ lang.name }}
+        L{{ lang.order }} = {{ lang.name }}
       </option>
     </select>
 
@@ -31,12 +31,13 @@ const languages = computed(() =>
       <p class="font-mono text-xl">
         {{ languageDefinitions[selectedLanguage].description }}
       </p>
+      <small>{{ languageDefinitions[selectedLanguage].info }}</small>
     </div>
 
     <!-- Start Button -->
     <button v-if="selectedLanguage" class="w-full px-4 py-2 rounded bg-red-700 text-white"
       @click="emit('start', selectedLanguage)">
-      <p class="font-bold">Spiel starten</p>
+      <p class="font-bold">Spiel mit dieser Sprache starten</p>
     </button>
   </div>
 </template>

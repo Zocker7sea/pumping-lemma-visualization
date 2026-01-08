@@ -9,11 +9,14 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
-    "vue": "^3.5.22"
+    "route": "^0.2.5",
+    "router": "^2.2.0",
+    "vue": "^3.5.22",
+    "vue-router": "^4.6.4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.1",
     "tailwindcss": "^4.1.18",
-    "vite": "^7.1.7"
+    "vite": "^7.3.1"
   }
 }
