@@ -1,1 +1,41 @@
 @import "tailwindcss";
+
+/* =========================
+   Pumping-Lemma Farbschema
+   ========================= */
+
+@import "tailwindcss";
+
+/* =========================
+   Pumping-Lemma Farbschema
+   ========================= */
+
+:root {
+  --u-bg: #dbeafe;   /* blue-100 */
+  --u-text: #1e40af; /* blue-800 */
+
+  --v-bg: #ffedd5;   /* orange-100 */
+  --v-text: #9a3412; /* orange-800 */
+
+  --w-bg: #e5e7eb;   /* gray-200 */
+  --w-text: #1f2937; /* gray-800 */
+}
+
+.part-u {
+  background-color: var(--u-bg);
+  color: var(--u-text);
+  border-radius: 0.25rem;
+}
+
+.part-v {
+  background-color: var(--v-bg);
+  color: var(--v-text);
+  border-radius: 0.25rem;
+  font-weight: 600;
+}
+
+.part-w {
+  background-color: var(--w-bg);
+  color: var(--w-text);
+  border-radius: 0.25rem;
+}

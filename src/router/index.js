@@ -1,25 +1,25 @@
-import { createRouter, createWebHistory } from "vue-router"
+import { createRouter, createWebHistory } from "vue-router";
 
 // Views
-import HomeView from "@/components/HomeView.vue"
-import PumpingView from "@/components/PumpingView.vue" 
+import HomeView from "@/view/HomeView.vue";
+import PumpingView from "@/view/PumpingView.vue";
 
 const routes = [
   {
     path: "/",
     name: "home",
-    component: HomeView
+    component: HomeView,
   },
   {
     path: "/languages",
     name: "game",
-    component: PumpingView
-  }
-]
+    component: PumpingView,
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
