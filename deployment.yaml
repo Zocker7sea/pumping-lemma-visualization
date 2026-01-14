@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pumping-lemma-visualization
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pumping-lemma-visualization
+  template:
+    metadata:
+      labels:
+        app: pumping-lemma-visualization
+    spec:
+      containers:
+        - name: app
+          image: pumping-lemma-visualization:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 4173

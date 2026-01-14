@@ -149,6 +149,13 @@ function validateWord() {
   const language = languageDefinitions[selectedLanguage.value]
   validationResult.value = language.isInLanguage(pumped.value)
 }
+const examplesIn = computed(() =>
+  languageDefinitions[selectedLanguage.value].examples.filter((w) => languageDefinitions[selectedLanguage.value].isInLanguage(w))
+)
+
+const examplesOut = computed(() =>
+  languageDefinitions[selectedLanguage.value].examples.filter((w) => !languageDefinitions[selectedLanguage.value].isInLanguage(w))
+)
 watch(i, () => {
   validationResult.value = null
 })
@@ -176,6 +183,11 @@ watch(i, () => {
     <div v-if="currentStep !== Step.LANGUAGE" class="border rounded p-4 mt-1 bg-gray-50 font-mono text-m font-bold">
       <p>
         {{ languageDefinitions[selectedLanguage].description }}
+        <!-- ℹ️ Info bleibt beim Pumpen & Wortauswahl sichtbar -->
+        <InfoTooltip
+          id="languageInfo"
+          :data="{ examplesIn, examplesOut }"
+        />
       </p>
       <p v-if="currentStep === Step.PUMP">
         Wort : {{ word }}

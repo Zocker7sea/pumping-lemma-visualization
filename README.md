@@ -1,49 +1,58 @@
-## Getting Started
+## Projektbeschreibung
 
-Dieses Projekt ist ein Prototyp zur interaktiven Visualisierung des Pumping-Lemmas für reguläre Sprachen. Die Anwendung wurde mit Vue.js umgesetzt und kann lokal oder containerisiert betrieben werden.
+Diese Anwendung visualisiert das Pumping-Lemma für reguläre Sprachen interaktiv.  
+Ziel ist es, die abstrakte Logik des Lemmas durch eine explorative und spielerische Darstellung verständlicher zu machen.
 
-### Voraussetzungen
+Der Nutzer interagiert mit einer formalen Sprache und untersucht, ob gepumpte Wörter weiterhin zur Sprache gehören.  
+Dabei orientiert sich die Anwendung an der klassischen Struktur des Pumping-Lemmas mit einer Zerlegung eines Wortes in die Bestandteile \(u\), \(v\) und \(w\).
 
-Für die lokale Entwicklung werden folgende Werkzeuge benötigt:
+Die Anwendung wurde im Rahmen einer Bachelorarbeit mit dem Titel  
+**„Einfach pumpen? – Das Pumping-Lemma anschaulich erklärt“** entwickelt.
 
-- Node.js (empfohlen: Version ≥ 18)
-- npm (wird mit Node.js installiert)
-- Optional: Docker (für containerisierten Betrieb)
+---
 
-### Lokale Installation und Ausführung
+## Technologien
 
-1. Repository klonen:
-   ```bash
-   git clone https://git.mylab.th-luebeck.de/max.jacobsen-mann/pumping-lemma-visualization
-   cd pumping-lemma-visualization
+- Vue.js 3
+- Vite
+- Vue Router
+- Tailwind CSS
+
+---
+
+## Voraussetzungen
+
+Damit die Anwendung lokal gestartet werden kann, müssen folgende Werkzeuge installiert sein:
+
+- **Node.js** (empfohlen: Version ≥ 18)
+- **npm** (wird automatisch mit Node.js installiert)
+
+---
+
+## Lokales Starten der Anwendung
+
+### 1. Repository klonen
+
+```properties 
+git clone https://git.mylab.th-luebeck.de/max.jacobsen-mann/pumping-lemma-visualization
+cd pumping-lemma-visualization
+```
+Abhängigkeiten installieren:
+```properties 
+  npm install
+``` 
+Entwicklungsserver starten:
+```properties 
+   npm run dev
+```
+Anwendung im Browser öffnen:
+```properties 
+   http://localhost:5173
+```
 
 
-## Production Deployment (Docker)
-
-Die Anwendung ist zustandslos (stateless) und eignet sich daher für den Betrieb in containerisierten Umgebungen wie Docker oder Kubernetes.
-
-### Docker Deployment
-
-Das bereitgestellte Dockerfile erstellt ein schlankes Production-Image auf Basis von Nginx. Der Build erfolgt in zwei Phasen:
-
-1. Build der Vue.js-Anwendung
-2. Auslieferung der statischen Dateien über Nginx
-
-Das Image kann in einer Container-Orchestrierungsumgebung (z.B. Kubernetes) ohne weitere Anpassungen betrieben werden.
-
-### Hinweise für Kubernetes / Cluster-Betrieb
-
-- Keine persistente Speicherung notwendig
-- Horizontal skalierbar
-- Port 80 wird vom Container exponiert
-- Konfiguration kann über Ingress oder LoadBalancer erfolgen
 
 
 
-## Lizenz
 
-Diese Anwendung wurde im Rahmen einer Bachelorarbeit entwickelt und steht unter der **MIT-Lizenz**.
 
-Die MIT-Lizenz erlaubt die freie Nutzung, Modifikation und Weiterverbreitung des Quellcodes, auch für kommerzielle Zwecke, sofern der ursprüngliche Urheberrechtshinweis erhalten bleibt.
-
-Weitere Informationen finden sich in der Datei [`LICENSE`](./LICENSE).
