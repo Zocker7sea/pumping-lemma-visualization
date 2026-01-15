@@ -17,7 +17,7 @@
       <!-- Text + Close Button -->
       <div class="flex items-start gap-2">
         <!-- Text -->
-        <div class="whitespace-pre-line text-sm text-gray-800 pr-4">
+        <div class="whitespace-pre-line text-sm text-gray-800 pr-4 pl-2">
           {{ tooltipText }}
         </div>
 
@@ -61,6 +61,21 @@ const open = ref(false)
    TOOLTIP-TEXTE (ZENTRAL)
 ========================= */
 const TOOLTIP_TEXTS = {
+  pumpingPrinciple: `
+  Weiterführende Darstellungen des Pumping-Lemmas finden sich unter
+anderem in „Introduction to Automata Theory, Languages, and Computation“
+sowie in „Teaching Formal Languages with Visualizations and
+Auto-Graded Exercises“.
+`,
+  gamePrinciple: `
+    Weitere didaktische Ansätze zur Vermittlung formaler Sprachen werden
+  unter anderem in den Arbeiten „Teaching Formal Languages with
+  Visualizations and Auto-Graded Exercises“ sowie
+  „Increasing Interaction and Support in the Formal Languages and
+  Automata Theory Course“ diskutiert.
+
+
+  `,
   pumpingLength: `
 Was ist die Pumping-Länge p?
 
@@ -76,12 +91,12 @@ Sie hängt nur von der Sprache ab, nicht vom gewählten Wort.
 `,
 
   decomposition: `
-Zerlegung des Wortes w = uvw
+Zerlegung des Wortes z = uvw
 
-Das Pumping-Lemma garantiert, dass jedes ausreichend lange Wort w
+Das Pumping-Lemma garantiert, dass jedes ausreichend lange Wort z
 in drei Teile zerlegt werden kann:
 
-w = u · v · w
+z = u · v · w
 
 Dabei gelten folgende Bedingungen:
 

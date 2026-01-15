@@ -50,9 +50,10 @@ Anwendung im Browser öffnen:
    http://localhost:5173
 ```
 
+## Lizenz
 
+Diese Anwendung wurde im Rahmen einer Bachelorarbeit entwickelt und steht unter der **MIT-Lizenz**.
 
+Die MIT-Lizenz erlaubt die freie Nutzung, Modifikation und Weiterverbreitung des Quellcodes, auch für kommerzielle Zwecke, sofern der ursprüngliche Urheberrechtshinweis erhalten bleibt.
 
-
-
-
+Weitere Informationen finden sich in der Datei [`LICENSE`](./LICENSE).

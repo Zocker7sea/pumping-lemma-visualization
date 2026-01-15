@@ -189,20 +189,23 @@ watch(i, () => {
           :data="{ examplesIn, examplesOut }"
         />
       </p>
-      <p v-if="currentStep === Step.PUMP">
+      <p v-if="currentStep === Step.DECOMPOSE || currentStep === Step.PUMP">
         Wort : {{ word }}
         <br />
-        Pumping-Länge: p = {{ p }}
-        <br />
+        Pumping-Länge: p = {{ p }} <InfoTooltip id="pumpingLength" />
+        </p>
+        <p v-if="currentStep === Step.PUMP">
         Zerlegung: z = <span class="part-u">u</span>
         <span class="part-v">v</span>
         <span class="part-w">w</span> mit
-
         <span class="part-u">{{ decomposition.u }}</span>
         <span class="part-v">{{ decomposition.v }}</span>
         <span class="part-w">{{ decomposition.w }}</span>
+        <InfoTooltip id="decomposition" />
+        </p>
+        
 
-      </p>
+      
     </div>
 
     <!-- Wortwahl -->
