@@ -43,43 +43,45 @@ function goToLanguageSelection() {
       <h2 class="text-2xl font-semibold">
         🎮 <strong>Spielprinzip</strong>
       </h2>
-
-      <p>
-        Das Spiel setzt das Pumping-Lemma für formale Sprachen in einem Dämon-vs-Spieler-Prinzip um.
-        Der Dämon vertritt die Annahme, dass die gewählte Sprache regulär ist.
-        Er legt eine Pumping-Länge p fest und bestimmt die Zerlegung eines Wortes in die Teile
-        u, v und w gemäß den Bedingungen des Pumping-Lemmas.
-
-        Der Spieler wählt ein Wort mit einer Länge von mindestens p und bestimmt einen Pumpfaktor i ≥ 0.
-        Ziel ist es zu überprüfen, ob das gepumpte Wort der Form u · vⁱ · w weiterhin zur Sprache gehört.
-
-
-      </p>
       <div class="space-y-3 ">
         <p>
-          👹 Der <strong>Dämon</strong> wählt die Pumping-Länge <em>p</em> und legt die Zerlegung
-          <em>u</em>, <em>v</em> und <em>w</em> fest.
-          Er verteidigt dabei die Annahme, dass die Sprache
-          <span class="text-red-700 font-semibold underline">regulär</span> ist.
+          Das Spiel visualisiert das Pumping-Lemma für formale Sprachen in einem
+          interaktiven <span class="font-medium">Dämon-vs-Spieler</span>-Prinzip.
+          Der Dämon vertritt die Annahme, dass die gewählte Sprache regulär ist.
+          Spieler und Dämon handeln dabei abwechselnd.
         </p>
-
         <p>
-          🧑‍🎓 Der <strong>Spieler</strong> wählt ein Wort und einen Pumpfaktor.<br>
-          Er versucht, durch geeignetes Pumpen einen Widerspruch zur Annahme des Dämons zu finden.
+          <span class="text-xl">🧑‍🎓</span> Der Spieler wählt eine formale Sprache aus, die untersucht werden soll.
         </p>
-
-        <p class="font-semibold">
-          Verlässt das gepumpte Wort die Sprache →
-          <span class="text-green-700">Spieler gewinnt ✔️</span>
+        <p>
+          <span class="text-xl">👹</span> Der Dämon legt eine Pumping-Länge <span class="font-mono">p</span> fest
+          und vertritt die Annahme, dass die gewählte Sprache regulär ist.
         </p>
-        <p class="font-semibold">
-          Bleibt das gepumpte Wort die Sprache →
-          <span class="text-red-700">Dämon gewinnt ✔️</span>
+        <p>
+          <span class="text-xl">🧑‍🎓</span> Der Spieler wählt ein Wort der Sprache.
+        </p>
+        <p>
+          <span class="text-xl">👹</span> Der Dämon zerlegt das Wort in die Teile
+          <span class="font-mono">u</span>,
+          <span class="font-mono">v</span> und
+          <span class="font-mono">w</span>.
+          Der mittlere Teil <span class="font-mono">v</span> ist der pumpbare
+          Abschnitt.
+        </p>
+        <p>
+          <span class="text-xl">🧑‍🎓</span> Der Spieler entscheidet, wie oft der mittlere Teil gepumpt wird, und
+          erzeugt das gepumpte Wort.
+        </p>
+        <p>
+          ✔️ Verlässt das gepumpte Wort die Sprache, ist die Annahme des Dämons
+          widerlegt – <strong>der Spieler gewinnt</strong>.
+        </p>
+        <p>
+          ✔️ Bleibt das gepumpte Wort in der Sprache, konnte kein Widerspruch
+          gefunden werden – <strong>der Dämon gewinnt</strong>.
         </p>
       </div>
     </section>
-
-
 
     <!-- Hinweis -->
     <section class="border-l-4 border-red-700 pl-4 bg-red-50 py-2">
@@ -96,6 +98,5 @@ function goToLanguageSelection() {
         ➡️ Zur Sprachauswahl
       </button>
     </section>
-
   </div>
 </template>
