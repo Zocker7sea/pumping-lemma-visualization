@@ -15,8 +15,26 @@ Dabei kommen zuerst alle a und danach alle b.
     states: null,
 
     isInLanguage(word) {
-      const match = word.match(/^(a+)(b+)$/);
-      return match && match[1].length === match[2].length;
+      return this.errors(word).length === 0;
+    },
+
+    errors(word) {
+      const errors = [];
+
+      if (!/^[ab]*$/.test(word)) {
+        errors.push("Das Wort enthält Zeichen außerhalb des Alphabets {a, b}.");
+      }
+
+      if (!/^(a*)(b*)$/.test(word)) {
+        errors.push("Ein 'b' darf nicht vor einem 'a' stehen.");
+      }
+
+      const match = word.match(/^(a*)(b*)$/);
+      if (match && match[1].length !== match[2].length) {
+        errors.push("Die Anzahl der a und b ist nicht gleich.");
+      }
+
+      return errors;
     },
   },
 
@@ -36,12 +54,25 @@ in denen die Anzahl der a gerade ist.
     states: 2,
 
     isInLanguage(word) {
-      let count = 0;
+      return this.errors(word).length === 0;
+    },
+
+    errors(word) {
+      const errors = [];
+
       for (const c of word) {
-        if (c === "a") count++;
-        else if (c !== "b") return false;
+        if (c !== "a" && c !== "b") {
+          errors.push("Das Wort enthält Zeichen außerhalb des Alphabets {a, b}.");
+          return errors;
+        }
       }
-      return count % 2 === 0;
+
+      const countA = [...word].filter(c => c === "a").length;
+      if (countA % 2 !== 0) {
+        errors.push("Die Anzahl der a ist ungerade.");
+      }
+
+      return errors;
     },
 
     pumpingDecomposition(word, p) {
@@ -69,7 +100,14 @@ des Musters „ab“.
     states: 2,
 
     isInLanguage(word) {
-      return /^(ab)*$/.test(word);
+      return this.errors(word).length === 0;
+    },
+
+    errors(word) {
+      if (!/^(ab)*$/.test(word)) {
+        return ["Das Wort besteht nicht aus vollständigen Wiederholungen von „ab“."];
+      }
+      return [];
     },
 
     pumpingDecomposition(word, p) {
@@ -97,12 +135,30 @@ in genau dieser Reihenfolge.
     states: null,
 
     isInLanguage(word) {
-      const match = word.match(/^(a+)(b+)(c+)$/);
-      return (
+      return this.errors(word).length === 0;
+    },
+
+    errors(word) {
+      const errors = [];
+
+      if (!/^[abc]*$/.test(word)) {
+        errors.push("Das Wort enthält Zeichen außerhalb des Alphabets {a, b, c}.");
+      }
+
+      if (!/^(a*)(b*)(c*)$/.test(word)) {
+        errors.push("Die Zeichen stehen nicht in der Reihenfolge a, b, c.");
+      }
+
+      const match = word.match(/^(a*)(b*)(c*)$/);
+      if (
         match &&
-        match[1].length === match[2].length &&
-        match[2].length === match[3].length
-      );
+        (match[1].length !== match[2].length ||
+         match[2].length !== match[3].length)
+      ) {
+        errors.push("Die Anzahl der a, b und c ist nicht gleich.");
+      }
+
+      return errors;
     },
   },
 
@@ -122,7 +178,14 @@ die vorwärts und rückwärts gleich sind.
     states: null,
 
     isInLanguage(word) {
-      return word === word.split("").reverse().join("");
+      return this.errors(word).length === 0;
+    },
+
+    errors(word) {
+      if (word !== word.split("").reverse().join("")) {
+        return ["Das Wort ist kein Palindrom."];
+      }
+      return [];
     },
   },
 
@@ -142,7 +205,14 @@ auch das leere Wort.
     states: 1,
 
     isInLanguage(word) {
-      return /^a*$/.test(word);
+      return this.errors(word).length === 0;
+    },
+
+    errors(word) {
+      if (!/^a*$/.test(word)) {
+        return ["Das Wort enthält mindestens ein Zeichen ungleich 'a'."];
+      }
+      return [];
     },
 
     pumpingDecomposition(word, p) {
@@ -171,8 +241,18 @@ Dazwischen dürfen beliebig viele b stehen.
     states: null,
 
     isInLanguage(word) {
-      const match = word.match(/^(a+)(b*)(a+)$/);
-      return match && match[1].length === match[3].length;
+      return this.errors(word).length === 0;
+    },
+
+    errors(word) {
+      const match = word.match(/^(a*)(b*)(a*)$/);
+      if (!match) {
+        return ["Das Wort enthält Zeichen außerhalb des Alphabets {a, b}."];
+      }
+      if (match[1].length !== match[3].length) {
+        return ["Die Anzahl der a am Anfang und am Ende ist nicht gleich."];
+      }
+      return [];
     },
   },
 
@@ -192,10 +272,19 @@ deren Länge ein Quadrat ist.
     states: null,
 
     isInLanguage(word) {
-      if (!/^a*$/.test(word)) return false;
+      return this.errors(word).length === 0;
+    },
+
+    errors(word) {
+      if (!/^a*$/.test(word)) {
+        return ["Das Wort enthält Zeichen ungleich 'a'."];
+      }
       const len = word.length;
       const k = Math.floor(Math.sqrt(len));
-      return k * k === len;
+      if (k * k !== len) {
+        return ["Die Wortlänge ist keine Quadratzahl."];
+      }
+      return [];
     },
   },
 
@@ -215,9 +304,18 @@ Dabei stehen alle a vor allen b.
     states: null,
 
     isInLanguage(word) {
+      return this.errors(word).length === 0;
+    },
+
+    errors(word) {
       const match = word.match(/^(a*)(b*)$/);
-      if (!match) return false;
-      return match[1].length > match[2].length;
+      if (!match) {
+        return ["Die Zeichen stehen nicht in der Reihenfolge a vor b."];
+      }
+      if (match[1].length <= match[2].length) {
+        return ["Die Anzahl der a ist nicht größer als die Anzahl der b."];
+      }
+      return [];
     },
   },
 };

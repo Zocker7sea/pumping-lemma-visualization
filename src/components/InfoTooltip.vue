@@ -12,22 +12,23 @@
     <!-- Tooltip Box -->
     <div
       v-if="open"
-      class="absolute z-50 mt-2 w-96 rounded-lg border border-gray-300 bg-white p-4 shadow-lg"
+      class="absolute z-50 mt-2 w-96 rounded-lg border border-gray-300 bg-white pr-2 pl-2 pb-2 shadow-lg"
     >
-      <!-- Close Button -->
-      <div class="flex justify-end">
+      <!-- Text + Close Button -->
+      <div class="flex items-start gap-2">
+        <!-- Text -->
+        <div class="whitespace-pre-line text-sm text-gray-800 pr-4 pl-2">
+          {{ tooltipText }}
+        </div>
+
+        <!-- Close Button -->
         <button
-          class="text-gray-400 hover:text-gray-600"
+          class="text-gray-400 hover:text-gray-600 self-start"
           @click="close"
           aria-label="Close"
         >
           ✕
         </button>
-      </div>
-
-      <!-- Text -->
-      <div class="whitespace-pre-line text-sm text-gray-800">
-        {{ tooltipText }}
       </div>
     </div>
   </div>
@@ -44,6 +45,11 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  data: {
+    type: Object,
+    required: false,
+    default: () => ({})
+  }
 })
 
 /* =========================
@@ -55,6 +61,21 @@ const open = ref(false)
    TOOLTIP-TEXTE (ZENTRAL)
 ========================= */
 const TOOLTIP_TEXTS = {
+  pumpingPrinciple: `
+  Weiterführende Darstellungen des Pumping-Lemmas finden sich unter
+anderem in „Introduction to Automata Theory, Languages, and Computation“
+sowie in „Teaching Formal Languages with Visualizations and
+Auto-Graded Exercises“.
+`,
+  gamePrinciple: `
+    Weitere didaktische Ansätze zur Vermittlung formaler Sprachen werden
+  unter anderem in den Arbeiten „Teaching Formal Languages with
+  Visualizations and Auto-Graded Exercises“ sowie
+  „Increasing Interaction and Support in the Formal Languages and
+  Automata Theory Course“ diskutiert.
+
+
+  `,
   pumpingLength: `
 Was ist die Pumping-Länge p?
 
@@ -70,12 +91,12 @@ Sie hängt nur von der Sprache ab, nicht vom gewählten Wort.
 `,
 
   decomposition: `
-Zerlegung des Wortes w = uvw
+Zerlegung des Wortes z = uvw
 
-Das Pumping-Lemma garantiert, dass jedes ausreichend lange Wort w
+Das Pumping-Lemma garantiert, dass jedes ausreichend lange Wort z
 in drei Teile zerlegt werden kann:
 
-w = u · v · w
+z = u · v · w
 
 Dabei gelten folgende Bedingungen:
 
@@ -87,13 +108,24 @@ Wichtig:
 Die Zerlegung wird vom Dämon gewählt.
 Der Benutzer hat keinen Einfluss auf die Zerlegung.
 `,
+
+  languageInfo: (examplesIn, examplesOut) => `
+Wörter in der Sprache:
+${examplesIn.map(w => `• ${w === '' ? 'ε' : w}`).join('\n')}
+
+Wörter nicht in der Sprache:
+${examplesOut.map(w => `• ${w === '' ? 'ε' : w}`).join('\n')}
+`
 }
 
 /* =========================
    ABGELEITETER TEXT
 ========================= */
 const tooltipText = computed(() => {
-  return TOOLTIP_TEXTS[props.id] ?? "Kein Tooltip-Text definiert."
+  const entry = TOOLTIP_TEXTS[props.id]
+  return typeof entry === 'function'
+    ? entry(props.data.examplesIn ?? [], props.data.examplesOut ?? [])
+    : entry ?? ''
 })
 
 /* =========================
@@ -107,7 +139,3 @@ function close() {
   open.value = false
 }
 </script>
-
-<style scoped>
-/* Optional: später Klick-außerhalb oder Animation */
-</style>

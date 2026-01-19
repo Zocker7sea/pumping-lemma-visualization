@@ -1,5 +1,6 @@
 <script setup>
 import { useRouter } from "vue-router"
+import InfoTooltip from "@/components/InfoTooltip.vue";
 
 const router = useRouter()
 
@@ -29,7 +30,7 @@ function goToLanguageSelection() {
     <!-- Pumping-Lemma Erklärung -->
     <section class="space-y-4">
       <h2 class="text-2xl font-semibold">
-        🔄 <strong>Pumping-Lemma</strong>
+        🔄 <strong>Pumping-Lemma</strong><InfoTooltip id="pumpingPrinciple"/>
       </h2>
       <p class="text-gray-700">
         Das Pumping-Lemma ist ein Beweisinstrument der formalen Sprachentheorie, das
@@ -41,7 +42,7 @@ function goToLanguageSelection() {
     <!-- Spielprinzip -->
     <section class="space-y-4">
       <h2 class="text-2xl font-semibold">
-        🎮 <strong>Spielprinzip</strong>
+        🎮 <strong>Spielprinzip</strong> <InfoTooltip id="gamePrinciple"/>
       </h2>
       <div class="space-y-3 ">
         <p>

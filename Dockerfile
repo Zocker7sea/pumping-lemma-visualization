@@ -1,27 +1,17 @@
-# ---------- Build Stage ----------
-FROM node:18-alpine AS build
+FROM node:20-alpine
 
 WORKDIR /build
 
-COPY package.json package-lock.json ./
+# Abhängigkeiten installieren
+COPY package*.json ./
 RUN npm install
 
+# Quellcode kopieren
 COPY . .
+
+# Production-Build
 RUN npm run build
 
-
-# ---------- Production Stage ----------
-FROM nginx:alpine
-
-# Entferne Default-Konfiguration
-RUN rm /etc/nginx/conf.d/default.conf
-
-# Eigene Nginx-Konfiguration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Build-Ergebnis kopieren
-COPY --from=build /build/dist /usr/share/nginx/html
-
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
+# Vite Preview Server
+EXPOSE 4173
+CMD ["npm", "run", "preview", "--", "--host"]

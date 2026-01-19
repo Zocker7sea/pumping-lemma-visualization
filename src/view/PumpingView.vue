@@ -149,6 +149,13 @@ function validateWord() {
   const language = languageDefinitions[selectedLanguage.value]
   validationResult.value = language.isInLanguage(pumped.value)
 }
+const examplesIn = computed(() =>
+  languageDefinitions[selectedLanguage.value].examples.filter((w) => languageDefinitions[selectedLanguage.value].isInLanguage(w))
+)
+
+const examplesOut = computed(() =>
+  languageDefinitions[selectedLanguage.value].examples.filter((w) => !languageDefinitions[selectedLanguage.value].isInLanguage(w))
+)
 watch(i, () => {
   validationResult.value = null
 })
@@ -176,21 +183,29 @@ watch(i, () => {
     <div v-if="currentStep !== Step.LANGUAGE" class="border rounded p-4 mt-1 bg-gray-50 font-mono text-m font-bold">
       <p>
         {{ languageDefinitions[selectedLanguage].description }}
+        <!-- ℹ️ Info bleibt beim Pumpen & Wortauswahl sichtbar -->
+        <InfoTooltip
+          id="languageInfo"
+          :data="{ examplesIn, examplesOut }"
+        />
       </p>
-      <p v-if="currentStep === Step.PUMP">
+      <p v-if="currentStep === Step.DECOMPOSE || currentStep === Step.PUMP">
         Wort : {{ word }}
         <br />
-        Pumping-Länge: p = {{ p }}
-        <br />
+        Pumping-Länge: p = {{ p }} <InfoTooltip id="pumpingLength" />
+        </p>
+        <p v-if="currentStep === Step.PUMP">
         Zerlegung: z = <span class="part-u">u</span>
         <span class="part-v">v</span>
         <span class="part-w">w</span> mit
-
         <span class="part-u">{{ decomposition.u }}</span>
         <span class="part-v">{{ decomposition.v }}</span>
         <span class="part-w">{{ decomposition.w }}</span>
+        <InfoTooltip id="decomposition" />
+        </p>
+        
 
-      </p>
+      
     </div>
 
     <!-- Wortwahl -->
