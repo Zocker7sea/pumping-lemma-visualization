@@ -60,7 +60,7 @@ const isValid = computed(() => errorMessage.value === "")
 
     <!-- Weiter Button -->
     <button class="px-4 py-2 rounded bg-red-700 w-full text-white disabled:opacity-50" :disabled="!isValid"
-      @click="emit('next')">
+      @click="emit('next')" aria-label="Wort festlegen und zum nächsten Schritt">
       Wort festlegen
     </button>
   </div>

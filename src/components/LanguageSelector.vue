@@ -82,7 +82,7 @@ const examplesOut = computed(() =>
 
     <!-- Start Button -->
     <button v-if="selectedLanguage" class="w-full px-4 py-2 rounded bg-red-700 text-white"
-      @click="emit('start', selectedLanguage)">
+      @click="emit('start', selectedLanguage)" aria-label="Mit ausgewählter Sprache starten">
       <p class="font-bold">Spiel mit dieser Sprache starten </p>
     </button>
   </div>

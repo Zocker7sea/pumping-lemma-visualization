@@ -170,7 +170,7 @@ watch(i, () => {
       </h2>
 
       <button
-        class="px-4 py-2 border-2 border-red-700 text-red-700 font-bold rounded hover:bg-red-700 hover:text-white transition"
+        class="px-4 py-2 border-2 border-red-700 text-red-700 font-bold rounded hover:bg-red-700 hover:text-white transition focus-visible:outline-2"
         @click="goToHome">
         Zur Startseite
       </button>
@@ -211,7 +211,8 @@ watch(i, () => {
     <!-- Wortwahl -->
     <div v-if="currentStep === Step.WORD_SELECT">
       <p class="text-lg">
-        👹 Dämon wählt
+        <span class="text-xl" aria-hidden="true">👹</span>
+        <span class="sr-only">Dämon</span> Dämon wählt
         <span class="font-mono font-bold">p = {{ p }}</span>
         <InfoTooltip id="pumpingLength" />
       </p>
@@ -222,7 +223,7 @@ watch(i, () => {
     <!-- Zerlegung -->
     <div v-if="currentStep === Step.DECOMPOSE" class="space-y-6">
       <DecompositionView :u="decompositions[0].u" :v="decompositions[0].v" :w="decompositions[0].w" :p="p" />
-      <button class="px-4 py-2 bg-red-700 w-full text-white rounded" @click="startPumping">
+      <button class="px-4 py-2 bg-red-700 w-full text-white rounded" @click="startPumping" aria-label="Weiter zum Pumpen">
         Weiter zum Pumpen
       </button>
     </div>
@@ -241,14 +242,14 @@ watch(i, () => {
           </span>
         </p>
         <p class="font-mono break-all text-lg">
-          <span v-for="(segment, index) in pumpedSegments" :key="index" :class="segment.class">
+          <span v-for="(segment, index) in pumpedSegments" :key="index" :class="segment.class" aria-label="Ergebnis des Pumpens">
             {{ segment.text }}
           </span>
         </p>
       </div>
 
       <!-- Validierung -->
-      <button class="px-4 py-2 bg-red-700 w-full text-white rounded" @click="validateWord">
+      <button aria-label="Wort überprüfen" class="px-4 py-2 bg-red-700 w-full text-white rounded" @click="validateWord">
         Wort überprüfen
       </button>
 
@@ -270,11 +271,11 @@ watch(i, () => {
 
     <!-- Navigation -->
     <div v-if="currentStep !== Step.LANGUAGE" class="flex justify-between pt-2">
-      <button class="text-sm hover:underline px-4 py-2 border-2 border-red-700 w-1/4 text-red-700 font-bold rounded"
-        @click="goBack">
+      <button class="text-sm hover:underline px-4 py-2 border-2 border-red-700 w-1/4 text-red-700 font-bold rounded focus-visible:outline-2"
+        @click="goBack" aria-label="Zurück zum vorherigen Schritt">
         ⬅️ Zurück
       </button>
-      <button class="text-sm hover:underline px-4 py-2 border-2 border-red-700 w-1/4 text-red-700 font-bold rounded"
+      <button aria-label="Mit Sprache neustarten" class="text-sm hover:underline px-4 py-2 border-2 border-red-700 w-1/4 text-red-700 font-bold rounded focus-visible:outline-2"
         @click="restartSameLanguage">
         🔁 Neustart
       </button>

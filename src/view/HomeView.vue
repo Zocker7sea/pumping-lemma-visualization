@@ -48,21 +48,25 @@ function goToLanguageSelection() {
         <p>
           Das Spiel visualisiert das Pumping-Lemma für formale Sprachen in einem
           interaktiven <span class="font-medium">Dämon-vs-Spieler</span>-Prinzip.
-          Der Dämon vertritt die Annahme, dass die gewählte Sprache regulär ist.
           Spieler und Dämon handeln dabei abwechselnd.
         </p>
         <p>
-          <span class="text-xl">🧑‍🎓</span> Der Spieler wählt eine formale Sprache aus, die untersucht werden soll.
+          <span class="text-xl" aria-hidden="true">🧑‍🎓</span>
+          <span class="sr-only">Spieler</span>
+          Der Spieler wählt eine formale Sprache aus, die untersucht werden soll.
         </p>
         <p>
-          <span class="text-xl">👹</span> Der Dämon legt eine Pumping-Länge <span class="font-mono">p</span> fest
+          <span class="text-xl" aria-hidden="true">👹</span>
+          <span class="sr-only">Dämon</span> Der Dämon legt eine Pumping-Länge <span class="font-mono">p</span> fest
           und vertritt die Annahme, dass die gewählte Sprache regulär ist.
         </p>
         <p>
-          <span class="text-xl">🧑‍🎓</span> Der Spieler wählt ein Wort der Sprache.
+          <span class="text-xl" aria-hidden="true">🧑‍🎓</span>
+          <span class="sr-only">Spieler</span> Der Spieler wählt ein Wort der Sprache.
         </p>
         <p>
-          <span class="text-xl">👹</span> Der Dämon zerlegt das Wort in die Teile
+          <span class="text-xl" aria-hidden="true">👹</span>
+          <span class="sr-only">Dämon</span> Der Dämon zerlegt das Wort in die Teile
           <span class="font-mono">u</span>,
           <span class="font-mono">v</span> und
           <span class="font-mono">w</span>.
@@ -70,7 +74,8 @@ function goToLanguageSelection() {
           Abschnitt.
         </p>
         <p>
-          <span class="text-xl">🧑‍🎓</span> Der Spieler entscheidet, wie oft der mittlere Teil gepumpt wird, und
+          <span class="text-xl" aria-hidden="true">🧑‍🎓</span>
+          <span class="sr-only">Spieler</span> Der Spieler entscheidet, wie oft der mittlere Teil gepumpt wird, und
           erzeugt das gepumpte Wort.
         </p>
         <p>
