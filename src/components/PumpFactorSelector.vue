@@ -29,7 +29,12 @@ function update(value) {
     </div>
     <!-- Anzeige des gewählten Werts i -->
     <p class="text-lg">
-      Gewählter Pumping-Faktor: <span class="font-mono font-bold"> {{ i }}</span>
+      Gewählter Pumping-Faktor: 
+      <span class="font-mono font-bold"> 
+        <span aria-live="polite" class="font-mono font-bold">
+          {{ i }}
+        </span>
+      </span>
     </p>
   </div>
 </template>

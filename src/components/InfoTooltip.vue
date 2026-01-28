@@ -6,7 +6,7 @@
       @click="toggle"
       aria-label="Info"
     >
-      ℹ️
+      <span aria-hidden="true">ℹ️</span>
     </button>
 
     <!-- Tooltip Box -->
@@ -63,16 +63,11 @@ const open = ref(false)
 const TOOLTIP_TEXTS = {
   pumpingPrinciple: `
   Weiterführende Darstellungen des Pumping-Lemmas finden sich unter
-anderem in „Introduction to Automata Theory, Languages, and Computation“
-sowie in „Teaching Formal Languages with Visualizations and
-Auto-Graded Exercises“.
+anderem in „Hopcroft, J. E., Motwani, R., & Ullman, J. D. (2001). Introduction to automata theory, languages, and computation. Acm Sigact News, 32(1), 60-65.“ sowie in „Mohammed, M., Shaffer, C. A., & Rodger, S. H. (2021, March). Teaching formal languages with visualizations and auto-graded exercises. In Proceedings of the 52nd ACM Technical Symposium on Computer Science Education (pp. 569-575).“.
 `,
   gamePrinciple: `
     Weitere didaktische Ansätze zur Vermittlung formaler Sprachen werden
-  unter anderem in den Arbeiten „Teaching Formal Languages with
-  Visualizations and Auto-Graded Exercises“ sowie
-  „Increasing Interaction and Support in the Formal Languages and
-  Automata Theory Course“ diskutiert.
+  unter anderem in den Arbeiten „Mohammed, M., Shaffer, C. A., & Rodger, S. H. (2021, March). Teaching formal languages with visualizations and auto-graded exercises. In Proceedings of the 52nd ACM Technical Symposium on Computer Science Education (pp. 569-575)" sowie „Rodger, S. H., Lim, J., & Reading, S. (2007). Increasing interaction and support in the formal languages and automata theory course. ACM SIGCSE Bulletin, 39(3), 58-62" diskutiert.
 
 
   `,

@@ -30,7 +30,8 @@ function goToLanguageSelection() {
     <!-- Pumping-Lemma Erklärung -->
     <section class="space-y-4">
       <h2 class="text-2xl font-semibold">
-        🔄 <strong>Pumping-Lemma</strong><InfoTooltip id="pumpingPrinciple"/>
+         <span aria-hidden="true">🔄</span>
+         <strong>Pumping-Lemma</strong><InfoTooltip id="pumpingPrinciple"/>
       </h2>
       <p class="text-gray-700">
         Das Pumping-Lemma ist ein Beweisinstrument der formalen Sprachentheorie, das
@@ -42,7 +43,8 @@ function goToLanguageSelection() {
     <!-- Spielprinzip -->
     <section class="space-y-4">
       <h2 class="text-2xl font-semibold">
-        🎮 <strong>Spielprinzip</strong> <InfoTooltip id="gamePrinciple"/>
+          <span aria-hidden="true">🎮</span>
+          <strong>Spielprinzip</strong> <InfoTooltip id="gamePrinciple"/>
       </h2>
       <div class="space-y-3 ">
         <p>
@@ -79,11 +81,13 @@ function goToLanguageSelection() {
           erzeugt das gepumpte Wort.
         </p>
         <p>
-          ✔️ Verlässt das gepumpte Wort die Sprache, ist die Annahme des Dämons
+          <span aria-hidden="true">✔️</span>
+          Verlässt das gepumpte Wort die Sprache, ist die Annahme des Dämons
           widerlegt – <strong>der Spieler gewinnt</strong>.
         </p>
         <p>
-          ✔️ Bleibt das gepumpte Wort in der Sprache, konnte kein Widerspruch
+          <span aria-hidden="true">✔️</span>
+          Bleibt das gepumpte Wort in der Sprache, konnte kein Widerspruch
           gefunden werden – <strong>der Dämon gewinnt</strong>.
         </p>
       </div>
