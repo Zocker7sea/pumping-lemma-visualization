@@ -1,16 +1,14 @@
 stages:
-      - docker
-variables:
-    IMAGE_NAME: $CI_REGISTRY_IMAGE
-    IMAGE_TAG: latest
-docker_build:
-    stage: docker
-    image: docker:24
-    services:
-        - docker:24-dind
-    variables:
-    before_script:
-        - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$CI_REGISTRY"
-    script:
-        - docker build -t $IMAGE_NAME:$IMAGE_TAG .
-        - docker push $IMAGE_NAME:$IMAGE_TAG
+  - mirror
+
+mirror_to_github:
+  stage: mirror
+  image: alpine/git
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+  script:
+    - git config --global user.email "ci@gitlab"
+    - git config --global user.name "GitLab CI"
+    - git remote remove github || true
+    - git remote add github https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@github.com/Zocker7sea/pumping-lemma-visualization.git
+    - git push --mirror github

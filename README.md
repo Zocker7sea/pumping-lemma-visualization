@@ -1,3 +1,5 @@
+# Pumping-Lemma Visualization
+
 ## Projektbeschreibung
 
 Diese Anwendung visualisiert das Pumping-Lemma für reguläre Sprachen interaktiv.  
@@ -31,24 +33,49 @@ Damit die Anwendung lokal gestartet werden kann, müssen folgende Werkzeuge inst
 
 ## Lokales Starten der Anwendung
 
-### 1. Repository klonen
+### Repository klonen
 
-```properties 
+Das Projekt kann aus einem der folgenden Repositories geklont werden:
+
+**GitLab (TH Lübeck, primäres Repository):**
+```bash
 git clone https://git.mylab.th-luebeck.de/max.jacobsen-mann/pumping-lemma-visualization
+```
+**GitHub (öffentliches Mirror-Repository):**
+```bash
+git clone https://github.com/Zocker7sea/pumping-lemma-visualization.git
+```
+Anschließend in das Projektverzeichnis wechseln:
+```bash
 cd pumping-lemma-visualization
 ```
-Abhängigkeiten installieren:
-```properties 
-  npm install
-``` 
-Entwicklungsserver starten:
-```properties 
-   npm run dev
+Abhängigkeiten installieren
+```bash
+npm install
 ```
-Anwendung im Browser öffnen:
-```properties 
-   http://localhost:5173
+Entwicklungsserver starten
+```bash
+npm run dev
 ```
+Die Anwendung ist anschließend im Browser unter folgender Adresse erreichbar:
+```bash
+http://localhost:5173
+```
+
+## Deployment
+
+Das primäre Repository des Projekts wird auf dem GitLab der TH Lübeck verwaltet.  
+Für das öffentliche Deployment wird das Projekt zusätzlich auf GitHub gespiegelt, da die Hosting-Plattform **Vercel** ausschließlich öffentliche Repositories unterstützt.
+
+Das Deployment erfolgt automatisiert über Vercel und stellt die Anwendung als statische Webanwendung bereit.
+
+### Live-Demo
+
+Die aktuelle Version der Anwendung ist unter folgender URL erreichbar:
+
+https://pumping-lemma-visualization.vercel.app
+
+---
 
 ## Lizenz
 
