@@ -13,4 +13,4 @@ mirror_to_github:
   script:
     - git remote remove github || true
     - git remote add github https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@github.com/Zocker7sea/pumping-lemma-visualization.git
-    - git push --mirror github
+    - git push github main
