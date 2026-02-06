@@ -1,0 +1,31 @@
+CASE,A102,A103,A106,A201,A202,A203,A204,A205,A208,A301,A302_01,A303_01
+48,1,3,4,5.0,5.0,4.0,5.0,4.0,2.0,4.0,,
+49,1,3,4,4.0,5.0,4.0,4.0,4.0,2.0,4.0,"Die rote Umrandung bei der Auswahl der Sprache ist aufgrund der Signalwirkung etwas irritierend. Ich hätte erwartet, dass diese implizite ""Fehlermeldung"" nach der Auswahl einer beliebigen Sprache entfällt.","Bei der Auswahl der Sprache wäre es schön, ein Eingabefeld zu haben, um Probe-Eingaben zu machen. Die dargestellten Beispiele für Worte, die (nicht) in der Sprache liegen, ermöglichen das Verständnis der Sprache in einfachen Fällen. Für komplexere Fälle, wäre eine interaktive Möglichkeit zur Prüfung des eigenen Verständnisses der Sprache angenehmer, da man nichts widerlegen kann, dass man nicht zumindest grundlegend verstanden hat. "
+50,2,1,4,4.0,5.0,5.0,5.0,5.0,4.0,4.0,,"Ist schon gut gemacht. Ich habe zwar einen MINT Hintergrund, aber keine Ahnung von theoretischer Informatik und kannte das Lemma vorher nicht. Nun habe ich zumindest das Gefühl, es prinzipiell verstanden zu haben, auch wenn das Konzept einer ""Sprache"" für mich ungewohnt ist.
+Die mathematische Notation ist für Laien vermutlich nicht verständlich, aber die sind wahrscheinlich auch nicht die Zielgruppe, oder? Wenn das kein Problem ist, schafft man auch den Rest mit Hilfe der Anwendung."
+58,2,1,1,2.0,1.0,1.0,4.0,1.0,1.0,3.0,,
+65,1,4,5,5.0,4.0,4.0,5.0,4.0,4.0,4.0,"Nachdem man eine Sprache durch hatte, war es etwas uneindeutig zur Sprachen auswahl zurückzukommen.",
+66,2,1,1,1.0,1.0,1.0,1.0,3.0,1.0,1.0,"Je nach Zielgruppe fehlte die notwendige sprachliche ""Höhe"" um das eigentliche Dilemma dann an hand der Formeln abzuleiten.",
+67,2,1,2,2.0,5.0,5.0,4.0,4.0,3.0,5.0,"Bei Sprache habe ich an Deutsch oder R gedacht. Hier hätte die Einladung bereits klarer sein müssen, mindestens durch Anführungszeichen, wenn nicht gleich der Auswahl, die es dann noch gibt. ",
+69,1,4,4,2.0,2.0,2.0,4.0,3.0,4.0,2.0,interaktive Rückmeldungen bei jeder Nutzereingabe verbessern,
+70,1,4,4,4.0,4.0,4.0,4.0,3.0,1.0,4.0,,
+71,2,1,4,4.0,5.0,4.0,5.0,4.0,5.0,4.0,,
+75,2,3,4,5.0,3.0,5.0,5.0,4.0,5.0,5.0,"Ich musste palindrome nochmal starten, weil es abccba nicht erkannt hat, beim zweiten Mal ging's.","Als Laie wäre es toll gewesen, zu erfahren, wozu der Beweis gut ist. Aber man kann googeln. Obwohl ein Gesamtzusammenhang der Verständlichkeit dienen kann."
+76,1,3,5,5.0,-9.0,-9.0,-9.0,-9.0,1.0,-9.0,,
+79,2,2,4,2.0,4.0,3.0,3.0,2.0,1.0,3.0,,
+81,2,1,2,2.0,4.0,3.0,5.0,4.0,2.0,3.0,,
+83,1,5,-9,4.0,2.0,4.0,5.0,2.0,2.0,5.0,,
+84,1,4,5,4.0,4.0,4.0,5.0,5.0,1.0,5.0,"Der Dämon zerlegt das Wort in z = uvw
+hätte ich die Formulierung nicht ""Der Dämon zerlegt das Wort z in uvw"" lauten sollen?",
+86,1,2,2,2.0,2.0,2.0,3.0,2.0,5.0,4.0,"Es fehlt eine tatsächlich einfache Erklärung zu Pumping Lemma - ich habe vor ca. 6 Jahren das Modul theoretische Informatik mit 2 bestanden, wusste demnach mal, was das ist - selbst zum dran zurückerinnern nicht ausreichend Erklärung",
+89,1,1,4,1.0,1.0,-9.0,-9.0,-9.0,5.0,1.0,ich hab keine Ahnung,
+90,1,2,4,5.0,4.0,5.0,5.0,4.0,5.0,4.0,,
+94,1,3,4,4.0,5.0,5.0,4.0,4.0,9.0,5.0,"Verbesserung:
+Es sollten Ziffern unter den einzelnen Buchstaben angezeigt werden um besser zu erkennen, welcher Buchstabe an welcher Stelle steht.
+
+aaabbbaaa
+123456789
+
+",
+101,1,3,4,4.0,4.0,4.0,5.0,3.0,1.0,5.0,,
+105,2,1,1,1.0,1.0,1.0,4.0,1.0,1.0,3.0,Alles,

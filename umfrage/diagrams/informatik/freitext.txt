@@ -1,0 +1,21 @@
+Die rote Umrandung bei der Auswahl der Sprache ist aufgrund der Signalwirkung etwas irritierend. Ich hätte erwartet, dass diese implizite "Fehlermeldung" nach der Auswahl einer beliebigen Sprache entfällt.
+
+Nachdem man eine Sprache durch hatte, war es etwas uneindeutig zur Sprachen auswahl zurückzukommen.
+
+interaktive Rückmeldungen bei jeder Nutzereingabe verbessern
+
+Der Dämon zerlegt das Wort in z = uvw
+hätte ich die Formulierung nicht "Der Dämon zerlegt das Wort z in uvw" lauten sollen?
+
+Es fehlt eine tatsächlich einfache Erklärung zu Pumping Lemma - ich habe vor ca. 6 Jahren das Modul theoretische Informatik mit 2 bestanden, wusste demnach mal, was das ist - selbst zum dran zurückerinnern nicht ausreichend Erklärung
+
+ich hab keine Ahnung
+
+Verbesserung:
+Es sollten Ziffern unter den einzelnen Buchstaben angezeigt werden um besser zu erkennen, welcher Buchstabe an welcher Stelle steht.
+
+aaabbbaaa
+123456789
+
+Bei der Auswahl der Sprache wäre es schön, ein Eingabefeld zu haben, um Probe-Eingaben zu machen. Die dargestellten Beispiele für Worte, die (nicht) in der Sprache liegen, ermöglichen das Verständnis der Sprache in einfachen Fällen. Für komplexere Fälle, wäre eine interaktive Möglichkeit zur Prüfung des eigenen Verständnisses der Sprache angenehmer, da man nichts widerlegen kann, dass man nicht zumindest grundlegend verstanden hat.
+

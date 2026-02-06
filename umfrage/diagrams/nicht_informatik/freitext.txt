@@ -1,0 +1,13 @@
+Je nach Zielgruppe fehlte die notwendige sprachliche "Höhe" um das eigentliche Dilemma dann an hand der Formeln abzuleiten.
+
+Bei Sprache habe ich an Deutsch oder R gedacht. Hier hätte die Einladung bereits klarer sein müssen, mindestens durch Anführungszeichen, wenn nicht gleich der Auswahl, die es dann noch gibt.
+
+Ich musste palindrome nochmal starten, weil es abccba nicht erkannt hat, beim zweiten Mal ging's.
+
+Alles
+
+Ist schon gut gemacht. Ich habe zwar einen MINT Hintergrund, aber keine Ahnung von theoretischer Informatik und kannte das Lemma vorher nicht. Nun habe ich zumindest das Gefühl, es prinzipiell verstanden zu haben, auch wenn das Konzept einer "Sprache" für mich ungewohnt ist.
+Die mathematische Notation ist für Laien vermutlich nicht verständlich, aber die sind wahrscheinlich auch nicht die Zielgruppe, oder? Wenn das kein Problem ist, schafft man auch den Rest mit Hilfe der Anwendung.
+
+Als Laie wäre es toll gewesen, zu erfahren, wozu der Beweis gut ist. Aber man kann googeln. Obwohl ein Gesamtzusammenhang der Verständlichkeit dienen kann.
+

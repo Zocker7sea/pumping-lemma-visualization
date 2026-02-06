@@ -1,0 +1,34 @@
+Die rote Umrandung bei der Auswahl der Sprache ist aufgrund der Signalwirkung etwas irritierend. Ich hätte erwartet, dass diese implizite "Fehlermeldung" nach der Auswahl einer beliebigen Sprache entfällt.
+
+Nachdem man eine Sprache durch hatte, war es etwas uneindeutig zur Sprachen auswahl zurückzukommen.
+
+Je nach Zielgruppe fehlte die notwendige sprachliche "Höhe" um das eigentliche Dilemma dann an hand der Formeln abzuleiten.
+
+Bei Sprache habe ich an Deutsch oder R gedacht. Hier hätte die Einladung bereits klarer sein müssen, mindestens durch Anführungszeichen, wenn nicht gleich der Auswahl, die es dann noch gibt.
+
+interaktive Rückmeldungen bei jeder Nutzereingabe verbessern
+
+Ich musste palindrome nochmal starten, weil es abccba nicht erkannt hat, beim zweiten Mal ging's.
+
+Der Dämon zerlegt das Wort in z = uvw
+hätte ich die Formulierung nicht "Der Dämon zerlegt das Wort z in uvw" lauten sollen?
+
+Es fehlt eine tatsächlich einfache Erklärung zu Pumping Lemma - ich habe vor ca. 6 Jahren das Modul theoretische Informatik mit 2 bestanden, wusste demnach mal, was das ist - selbst zum dran zurückerinnern nicht ausreichend Erklärung
+
+ich hab keine Ahnung
+
+Verbesserung:
+Es sollten Ziffern unter den einzelnen Buchstaben angezeigt werden um besser zu erkennen, welcher Buchstabe an welcher Stelle steht.
+
+aaabbbaaa
+123456789
+
+Alles
+
+Bei der Auswahl der Sprache wäre es schön, ein Eingabefeld zu haben, um Probe-Eingaben zu machen. Die dargestellten Beispiele für Worte, die (nicht) in der Sprache liegen, ermöglichen das Verständnis der Sprache in einfachen Fällen. Für komplexere Fälle, wäre eine interaktive Möglichkeit zur Prüfung des eigenen Verständnisses der Sprache angenehmer, da man nichts widerlegen kann, dass man nicht zumindest grundlegend verstanden hat.
+
+Ist schon gut gemacht. Ich habe zwar einen MINT Hintergrund, aber keine Ahnung von theoretischer Informatik und kannte das Lemma vorher nicht. Nun habe ich zumindest das Gefühl, es prinzipiell verstanden zu haben, auch wenn das Konzept einer "Sprache" für mich ungewohnt ist.
+Die mathematische Notation ist für Laien vermutlich nicht verständlich, aber die sind wahrscheinlich auch nicht die Zielgruppe, oder? Wenn das kein Problem ist, schafft man auch den Rest mit Hilfe der Anwendung.
+
+Als Laie wäre es toll gewesen, zu erfahren, wozu der Beweis gut ist. Aber man kann googeln. Obwohl ein Gesamtzusammenhang der Verständlichkeit dienen kann.
+
