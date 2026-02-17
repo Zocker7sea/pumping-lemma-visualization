@@ -179,4 +179,4 @@ for group_name, group_df in groups.items():
         for t in texts:
             f.write(t.strip() + "\n\n")
 
-print("Alle Diagramme **und** je eine Gesamt-CSV pro Untergruppe wurden erstellt.")
+print("Alle Diagramme wurden erstellt.")

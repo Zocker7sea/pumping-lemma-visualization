@@ -19,3 +19,5 @@ aaabbbaaa
 
 Bei der Auswahl der Sprache wäre es schön, ein Eingabefeld zu haben, um Probe-Eingaben zu machen. Die dargestellten Beispiele für Worte, die (nicht) in der Sprache liegen, ermöglichen das Verständnis der Sprache in einfachen Fällen. Für komplexere Fälle, wäre eine interaktive Möglichkeit zur Prüfung des eigenen Verständnisses der Sprache angenehmer, da man nichts widerlegen kann, dass man nicht zumindest grundlegend verstanden hat.
 
+Schöne Gestaltung{EM_THUMBS_UP}.
+

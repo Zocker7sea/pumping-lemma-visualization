@@ -89,7 +89,6 @@ function startGame(langId) {
 function goNext(step) {
   history.value.push(currentStep.value)
   currentStep.value = step
-  console.log(word.value.slice(p.value));
 
 }
 // Vorheriger Schritt
@@ -184,17 +183,15 @@ watch(i, () => {
       <p>
         {{ languageDefinitions[selectedLanguage].description }}
         <!-- ℹ️ Info bleibt beim Pumpen & Wortauswahl sichtbar -->
-        <InfoTooltip
-          id="languageInfo"
-          :data="{ examplesIn, examplesOut }"
-        />
+        <InfoTooltip id="languageInfo" :data="{ examplesIn, examplesOut }" />
       </p>
       <p v-if="currentStep === Step.DECOMPOSE || currentStep === Step.PUMP">
         Wort : {{ word }}
         <br />
-        Pumping-Länge: p = {{ p }} <InfoTooltip id="pumpingLength" />
-        </p>
-        <p v-if="currentStep === Step.PUMP">
+        Pumping-Länge: p = {{ p }}
+        <InfoTooltip id="pumpingLength" />
+      </p>
+      <p v-if="currentStep === Step.PUMP">
         Zerlegung: z = <span class="part-u">u</span>
         <span class="part-v">v</span>
         <span class="part-w">w</span> mit
@@ -202,10 +199,10 @@ watch(i, () => {
         <span class="part-v">{{ decomposition.v }}</span>
         <span class="part-w">{{ decomposition.w }}</span>
         <InfoTooltip id="decomposition" />
-        </p>
-        
+      </p>
 
-      
+
+
     </div>
 
     <!-- Wortwahl -->
@@ -223,7 +220,8 @@ watch(i, () => {
     <!-- Zerlegung -->
     <div v-if="currentStep === Step.DECOMPOSE" class="space-y-6">
       <DecompositionView :u="decompositions[0].u" :v="decompositions[0].v" :w="decompositions[0].w" :p="p" />
-      <button class="px-4 py-2 bg-red-700 w-full text-white rounded" @click="startPumping" aria-label="Weiter zum Pumpen">
+      <button class="px-4 py-2 bg-red-700 w-full text-white rounded" @click="startPumping"
+        aria-label="Weiter zum Pumpen">
         Weiter zum Pumpen
       </button>
     </div>
@@ -242,7 +240,8 @@ watch(i, () => {
           </span>
         </p>
         <p class="font-mono break-all text-lg">
-          <span v-for="(segment, index) in pumpedSegments" :key="index" :class="segment.class" aria-label="Ergebnis des Pumpens">
+          <span v-for="(segment, index) in pumpedSegments" :key="index" :class="segment.class"
+            aria-label="Ergebnis des Pumpens">
             {{ segment.text }}
           </span>
         </p>
@@ -271,11 +270,13 @@ watch(i, () => {
 
     <!-- Navigation -->
     <div v-if="currentStep !== Step.LANGUAGE" class="flex justify-between pt-2">
-      <button class="text-sm hover:underline px-4 py-2 border-2 border-red-700 w-1/4 text-red-700 font-bold rounded focus-visible:outline-2"
+      <button
+        class="text-sm hover:underline px-4 py-2 border-2 border-red-700 w-1/4 text-red-700 font-bold rounded focus-visible:outline-2"
         @click="goBack" aria-label="Zurück zum vorherigen Schritt">
         ⬅️ Zurück
       </button>
-      <button aria-label="Mit Sprache neustarten" class="text-sm hover:underline px-4 py-2 border-2 border-red-700 w-1/4 text-red-700 font-bold rounded focus-visible:outline-2"
+      <button aria-label="Mit Sprache neustarten"
+        class="text-sm hover:underline px-4 py-2 border-2 border-red-700 w-1/4 text-red-700 font-bold rounded focus-visible:outline-2"
         @click="restartSameLanguage">
         🔁 Neustart
       </button>
