@@ -62,12 +62,14 @@ in denen die Anzahl der a gerade ist.
 
       for (const c of word) {
         if (c !== "a" && c !== "b") {
-          errors.push("Das Wort enthält Zeichen außerhalb des Alphabets {a, b}.");
+          errors.push(
+            "Das Wort enthält Zeichen außerhalb des Alphabets {a, b}.",
+          );
           return errors;
         }
       }
 
-      const countA = [...word].filter(c => c === "a").length;
+      const countA = [...word].filter((c) => c === "a").length;
       if (countA % 2 !== 0) {
         errors.push("Die Anzahl der a ist ungerade.");
       }
@@ -76,12 +78,34 @@ in denen die Anzahl der a gerade ist.
     },
 
     pumpingDecomposition(word, p) {
+      const prefix = word.slice(0, p);
+      const index = prefix.indexOf("aa");
+
+      if (index !== -1) {
+        return {
+          u: word.slice(0, index),
+          v: "aa",
+          w: word.slice(index + 2),
+        };
+      }
+
+      // fallback: nur b pumpen
+      const bIndex = prefix.indexOf("b");
+
+      if (bIndex !== -1) {
+        return {
+          u: word.slice(0, bIndex),
+          v: "b",
+          w: word.slice(bIndex + 1),
+        };
+      }
+
       return {
         u: "",
-        v: word.slice(0, 1),
-        w: word.slice(1),
+        v: word.slice(0, p),
+        w: word.slice(p),
       };
-    },
+    },  
   },
 
   abab: {
@@ -105,7 +129,9 @@ des Musters „ab“.
 
     errors(word) {
       if (!/^(ab)*$/.test(word)) {
-        return ["Das Wort besteht nicht aus vollständigen Wiederholungen von „ab“."];
+        return [
+          "Das Wort besteht nicht aus vollständigen Wiederholungen von „ab“.",
+        ];
       }
       return [];
     },
@@ -142,7 +168,9 @@ in genau dieser Reihenfolge.
       const errors = [];
 
       if (!/^[abc]*$/.test(word)) {
-        errors.push("Das Wort enthält Zeichen außerhalb des Alphabets {a, b, c}.");
+        errors.push(
+          "Das Wort enthält Zeichen außerhalb des Alphabets {a, b, c}.",
+        );
       }
 
       if (!/^(a*)(b*)(c*)$/.test(word)) {
@@ -153,7 +181,7 @@ in genau dieser Reihenfolge.
       if (
         match &&
         (match[1].length !== match[2].length ||
-         match[2].length !== match[3].length)
+          match[2].length !== match[3].length)
       ) {
         errors.push("Die Anzahl der a, b und c ist nicht gleich.");
       }
