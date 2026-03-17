@@ -35,7 +35,7 @@ const isValid = computed(() => errorMessage.value === "")
 
 <template>
   <div class="space-y-4">
-    <code class="text-lg ">Spieler wählt ein Wort w ∈ L | |w| ≥ {{ p }}</code>
+    <code class="text-lg ">Spieler wählt ein Wort z ∈ L | |z| ≥ {{ p }}</code>
 
     <!-- Eingabefeld für Wort -->
     <input class="w-full border rounded px-3 py-2 mt-2"
